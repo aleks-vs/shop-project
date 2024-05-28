@@ -1,5 +1,5 @@
 const CardItem = (props) => {
-  console.log("props", props.props.name);
+  // console.log("props", props.props.name);
 
   return (
       <ul className="item-card">
