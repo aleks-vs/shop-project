@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color:bisque;
+  font-family: "Montserrat", sans-serif;
+    font-weight:400;
+    color: rgb(42, 42, 42);
+}
+.devider{
+  height: 2px;
+margin-top: 5px;
+  background-color: black;
+}
+.App{
+  margin: 50px 10vw;
+}
+.logo{
+  font-weight: 900;
+  font-size: 22px;
+  }
+.navigation{
+  list-style: none;
+  float: right;
+}
+.navigation li{
+  display: inline;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: opacity 500ms ease;
+}
+.navigation li:hover{
+  opacity: 0.5;
+}
+header .header-banner{
+  position: relative;
+  background: url('./img/headbg.jpg') no-repeat;
+background-size: cover;
+background-position: center center;
+  width: 80vw;
+  height: 15vw;
+  margin: 50px 0;
+}
+/* .header-banner::after{
+  content: 'по выгодным ценам :-)';
+  color: rgb(122, 122, 122);
+  font-size: 13px;
+  font-weight: 600;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+} */
+.items-list {
+  display: flex;
+  gap: 10px;
+
+}
+
+.item-card{
+  background-color: #fff;
+  border-radius: 10px;
+  list-style: none;
+  width: 250px;
+  overflow: hidden;
+}
+
+
+.item-card li img{
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  transition: transform 500ms ease
+}
+.item-card li img:hover{
+  transform: scale(1.05);
+}
+
+footer{
+  text-align: center;
+  margin-top:50px;
+  background-color: rgb(202, 171, 134);
+}
