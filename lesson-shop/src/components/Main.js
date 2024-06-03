@@ -5,7 +5,7 @@ const Main = () => {
        return (
     < div className='items-list'>
     {
-        items.map((item) => <CardItem key={item.id} props={item} />
+        items.map((item) => <CardItem key={item.id} item={item} />
         )
     }
     </div>

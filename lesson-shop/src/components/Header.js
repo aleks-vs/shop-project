@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TfiShoppingCartFull, TfiHeart } from "react-icons/tfi";
+import cart from "../data/globals";
 
 export default function Header() {
   let [cartOpen, setCartOpen] = useState(false);
@@ -30,7 +31,14 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      {cartOpen && <div className="cart-window"></div>}
+      {cartOpen && (
+        <div className="cart-window">
+          {cart.map((elem) => (
+            <p key={elem.id}>{`Name: ${elem.cartItem.name}, q: ${elem.quantity}`}</p>
+            // <p key={elem.id}>{`Name: ${elem.cartItem.name}, q: ${elem.quantity}`}</p>
+          ))}
+        </div>
+      )}
       {likesOpen && <div className="likes-window"></div>}
       <div className="devider"></div>
       <div className="banner-height">
