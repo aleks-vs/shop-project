@@ -43,8 +43,8 @@ header{
   opacity: 0.5;
 }
 .header-icons{
+  font-size: large;
   padding: 2px;
-  width: 2em;
   margin-left: 5px;
   transition: transform 500ms ease;
 }
@@ -89,6 +89,7 @@ background-position: center center;
 }
 
 .item-card{
+  position: relative;
   background-color: #fff;
   border-radius: 10px;
   list-style: none;
@@ -100,21 +101,35 @@ background-position: center center;
 .item-card li img{
   width: 100%;
   border-radius: 15px 15px 0 0;
-  transition: transform 500ms ease
+  /* transition: transform 500ms ease */
 }
-.item-card li img:hover{
+/* .item-card li img:hover{
   transform: scale(1.05);
+} */
+.add-to-cart-button{
+  width: 100%;
+  height: 30px;
+  font-size: large;
+  margin: 10px 0 0 0;
+  border-radius: 15px;
 }
-.card-button{
-  margin-right: 15px;
-  margin-bottom: 10px;
+
+.like-heart{
+  font-size:x-large;
+position: absolute;
+z-index: 100;
+top: 15px;
+right: 15px;
+
   transition: transform 500ms ease
 }
-.card-button:hover{
+.like-heart:hover {
   transform: scale(1.5)
 }
-.isLiked{
-  color: red;
+.inCartQuantity{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 /* ////////////////////////////////////////// About footer */

@@ -1,28 +1,21 @@
-import { useState } from "react";
-import cart from "../data/globals";
+import {useCart} from "./stores";
 
-const InCartQuantity = ({id}, text) => {
-  const inCartItem = cart.find((item) => item.id === id);
-  let [value, setValue] = useState(inCartItem.quantity);
-  let [inCart, setInCart] = useState(cart);
-  function plus() {
-    inCartItem.quantity++;
-    setValue(inCartItem.quantity);
+const InCartQuantity = ({id}) => {
+  
+
+const {inCartIncrement, inCartDecrement, delFromCart} = useCart()
+
+  const cart = useCart(state => state.cart)
+  const quantityInCart =  cart.find((item) => item.id === id).quantity
+  function minusBtn(id) {
+    quantityInCart > 1 ? inCartDecrement(id) : delFromCart(id)
   }
-  function minus() {
-    inCartItem.quantity--;
-      setValue(inCartItem.quantity);
-  }
-  const forDel = cart.find((el) => el.id === id);
-  const filtered = cart.filter((el)=> el.id !== id)
   
   return (
-    <span>
-      <button onClick={() => minus()}>---</button>В корзине: {value} шт.
-      <button onClick={() => plus()}>+++</button>
-      <button onClick={() => cart.splice(forDel,1)}>Delete</button>
-  {console.log(inCart)}
-  {console.log("filtered: ",setInCart(filtered))}
+    <span className="inCartQuantity">
+      <button onClick={() => minusBtn(id)}>---</button><b>{quantityInCart}</b>
+      <button onClick={() => inCartIncrement(id)}>+++</button>
+      <button onClick={() => delFromCart(id)}>X</button>
     </span>
   );
 };

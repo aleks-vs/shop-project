@@ -1,11 +1,23 @@
 import React, { useState } from "react";
-import { TfiShoppingCartFull, TfiHeart } from "react-icons/tfi";
-import cart from "../data/globals";
+import { TfiShoppingCartFull } from "react-icons/tfi";
+import { BsBookmarks  } from "react-icons/bs";
+import {useCart, useLike} from "./stores";
 
 export default function Header() {
   let [cartOpen, setCartOpen] = useState(false);
   let [likesOpen, setLikesOpen] = useState(false);
+  const cart = useCart(state => state.cart)
+  const likes = useLike(state => state.likes);
 
+  function cartOpenBtn() {
+    setLikesOpen(false)
+    setCartOpen(cartOpen = !cartOpen)
+  }
+  function likesOpenBtn() {
+    setCartOpen(false);
+    setLikesOpen(likesOpen = !likesOpen)
+  }
+  
   return (
     <header>
       <nav>
@@ -18,14 +30,14 @@ export default function Header() {
           <li>Contacts</li>
           <li>About</li>
           <li>
-            <TfiHeart
-              onClick={() => setLikesOpen((likesOpen = !likesOpen))}
+            <BsBookmarks  
+              onClick={() => likesOpenBtn()}
               className={`header-icons ${likesOpen && "active"}`}
             />
           </li>
           <li>
             <TfiShoppingCartFull
-              onClick={() => setCartOpen((cartOpen = !cartOpen))}
+              onClick={() => cartOpenBtn()}
               className={`header-icons ${cartOpen && "active"}`}
             />
           </li>
@@ -34,12 +46,15 @@ export default function Header() {
       {cartOpen && (
         <div className="cart-window">
           {cart.map((elem) => (
-            <p key={elem.id}>{`Name: ${elem.cartItem.name}, q: ${elem.quantity}`}</p>
-            // <p key={elem.id}>{`Name: ${elem.cartItem.name}, q: ${elem.quantity}`}</p>
+            elem.cartItem && <p key={elem.id}>{`Name: ${elem.cartItem.name}, q: ${elem.quantity}`}</p>
           ))}
         </div>
       )}
-      {likesOpen && <div className="likes-window"></div>}
+      {likesOpen && <div className="likes-window">
+        {likes.map((elem) => ( //при удалении из массива не может найти name, ошибка
+         elem.likedItem && <p key={elem.id}>{`Name: ${elem.likedItem.name}`}</p>
+        ))}
+        </div>}
       <div className="devider"></div>
       <div className="banner-height">
         <div className="header-banner"></div>
