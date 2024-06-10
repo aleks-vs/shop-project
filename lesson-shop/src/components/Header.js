@@ -21,11 +21,11 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <span className="logo">
+        <div className="logo">
           Shop
           <br />
           Logo
-        </span>
+        </div>
         <ul className="navigation">
           <li>Contacts</li>
           <li>About</li>

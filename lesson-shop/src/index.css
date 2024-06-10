@@ -17,7 +17,7 @@ body{
 margin-top: 5px;
   background-color: black;
 }
-.App{
+main{
   margin: 50px 5vw;
 }
 
@@ -26,10 +26,16 @@ header{
   position: relative;
 }
 .logo{
+  display: inline-block;
+  width: fit-content;
+  margin-left: 5vw;
+  margin-top: 10px;
   font-weight: 900;
   font-size: 22px;
   }
 .navigation{
+  margin-right: 5vw;
+    margin-top: 25px;
   list-style: none;
   float: right;
 }
@@ -76,9 +82,9 @@ header .header-banner{
   background: url('./img/headbg.jpg') no-repeat;
 background-size: cover;
 background-position: center center;
-  width: 100%;
+  width: 90vw;
   height: 20vw;
-  margin: 50px 0;
+  margin: 25px auto;
 }
 
 /* ////////////////////////////////////////// About card items */
