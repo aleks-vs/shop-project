@@ -33,7 +33,7 @@ const CardItem = ({ item }) => {
         </div>
       <li>
         {!itemInCart ? <button onClick={() => addToCart(item)} className="add-to-cart-button" ><BsCartPlus style={{fontSize:"large"}}/> В корзину  </button>:
-          <InCartQuantity id={item.id} btnStyle={'card-quantity-btn'} />}
+          <InCartQuantity id={item.id} btnStyle={'card-quantity-btn'} fontSize={'20px'} />}
       </li>
     </ul>
   );

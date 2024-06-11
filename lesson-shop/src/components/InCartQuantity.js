@@ -1,7 +1,7 @@
 import { useCart } from "./stores";
 import { AiOutlineMinus , AiOutlinePlus   } from "react-icons/ai";
 
-const InCartQuantity = ({id, btnStyle}) => {
+const InCartQuantity = ({id, btnStyle, fontSize}) => {
   
 
 const {inCartIncrement, inCartDecrement, delFromCart} = useCart()
@@ -13,7 +13,7 @@ const {inCartIncrement, inCartDecrement, delFromCart} = useCart()
   }
   
   return (
-    <span className="card-quantity" style={{ fontSize: "20px" }}>
+    <span className="card-quantity" style={{ fontSize: `${fontSize}` }}>
       <button className={`${btnStyle}`} onClick={() => minusBtn(id)}><AiOutlineMinus /></button><b>{quantityInCart}</b>
       <button className={`${btnStyle}`} onClick={() => inCartIncrement(id)}><AiOutlinePlus  /></button>
       {/* <button onClick={() => delFromCart(id)}>X</button> */}
