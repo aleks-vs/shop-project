@@ -1,4 +1,4 @@
-import { BsBookmarkPlus , BsBookmarkCheck  , BsCartPlus } from "react-icons/bs";
+import { BsBookmarkPlus , BsBookmarkCheck  , BsCartPlus, BsChatFill, BsStarFill   } from "react-icons/bs";
 import InCartQuantity from "./InCartQuantity";
 import { useCart } from "./stores";
 import {useLike} from "./stores";
@@ -15,21 +15,25 @@ const CardItem = ({ item }) => {
   const isLiked = likes.find((el) => el.id === item.id)
   return (
     <ul className="item-card">
-      <li>{isLiked ? <BsBookmarkCheck onClick={() => delFromLikes(item)} className={`like-heart`}/>:<BsBookmarkPlus
+      <div>
+      <li>{isLiked ? <BsBookmarkCheck onClick={() => delFromLikes(item)} className={`card-bookmarks`}/>:<BsBookmarkPlus
         onClick={() => addToLikes(item)}
-        className={`like-heart`} 
+        className={`card-bookmarks`} 
       /> }
         <img src={item.img} alt="item" />
       </li>
-      
-      <li style={{ textAlign: "center" }}>
-        <b>{item.name}</b>
+      <li>
+        <span className="price-with-disc">{item.price + "$"} </span>
+        <span className="full-price">1000$ </span>
+        <span className="discount-percent">-98%</span>
       </li>
-      <li>Описание: {item.description}</li>
-      <li>Цена: {item.price + "$"}</li>
-      <li style={{ textAlign: "end" }}>
+      <li className="stock-quantity">Осталось N шт</li>
+      <li className="item-title">{item.name}</li>
+        <li className="rating-and-reviews"><BsStarFill style={{color:"darkorange"}}/> 4.7 <BsChatFill /> 11 отзывов</li>
+        </div>
+      <li>
         {!itemInCart ? <button onClick={() => addToCart(item)} className="add-to-cart-button" ><BsCartPlus style={{fontSize:"large"}}/> В корзину  </button>:
-        <InCartQuantity id={item.id} />}
+          <InCartQuantity id={item.id} btnStyle={'card-quantity-btn'} />}
       </li>
     </ul>
   );
