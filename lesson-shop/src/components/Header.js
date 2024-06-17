@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { BsBookmarks  } from "react-icons/bs";
 import {useCart, useLike} from "./stores";
+import Bookmarks from "./Bookmarks";
 
 export default function Header() {
   let [cartOpen, setCartOpen] = useState(false);
   let [likesOpen, setLikesOpen] = useState(false);
-  const cart = useCart(state => state.cart)
-  const likes = useLike(state => state.likes);
-
+  const cart = useCart(state => state.cart);
+  const bookmarks = useLike(state=> state.likes)
   function cartOpenBtn() {
     setLikesOpen(false)
     setCartOpen(cartOpen = !cartOpen)
   }
+  useEffect(() => {
+    if (!cart.length) {
+     return setCartOpen(false)
+    }
+  }, [cart, cartOpen])
   function likesOpenBtn() {
-    setCartOpen(false);
+    setCartOpen(false)
     setLikesOpen(likesOpen = !likesOpen)
   }
-  
+  useEffect(() => {
+    if (!bookmarks.length) {
+     return setLikesOpen(false)
+    }
+  }, [bookmarks, likesOpen])
   return (
     <header>
       <nav>
@@ -50,11 +59,10 @@ export default function Header() {
           ))}
         </div>
       )}
-      {likesOpen && <div className="likes-window">
-        {likes.map((elem) => ( //при удалении из массива не может найти name, ошибка
-         elem.likedItem && <p key={elem.id}>{`Name: ${elem.likedItem.name}`}</p>
-        ))}
-        </div>}
+      {likesOpen && <Bookmarks />
+      }
+      
+      {console.log("length",bookmarks[0])}
       <div className="devider"></div>
       <div className="banner-height">
         <div className="header-banner"></div>

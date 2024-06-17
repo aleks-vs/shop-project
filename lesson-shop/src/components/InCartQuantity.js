@@ -10,6 +10,7 @@ const {inCartIncrement, inCartDecrement, delFromCart} = useCart()
   const quantityInCart =  cart.find((item) => item.id === id).quantity
   function minusBtn(id) {
     quantityInCart > 1 ? inCartDecrement(id) : delFromCart(id)
+    console.log("id:",quantityInCart);
   }
   
   return (

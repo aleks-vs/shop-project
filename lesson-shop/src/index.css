@@ -67,15 +67,26 @@ header{
   box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
 }
 
-.likes-window {
+.bookmarks-window {
   position: absolute;
   right: 3em;
   background-color: #fff;
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: auto;
   z-index: 100;
+  border-radius: 5px;
   box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
 }
+.bookmarks-window li img{
+  width: 100px;
+}
+.bookmarks-card{
+  display: flex;
+  list-style:none;
+  align-items: center;
+  gap: 10px;
+}
+
 
 header .header-banner{
   position: relative;
@@ -155,16 +166,21 @@ font-size: small;
 }
 
 
-.card-bookmarks{
+.bookmark-card-icon{
   font-size:x-large;
   position: absolute;
-  z-index: 100;
+  z-index: 10;
   top: 2%;
   right: 2%;
   transition: transform 500ms ease
 }
-.like-heart:hover {
+.bookmark-card-icon:hover, .bookmark-window-icon:hover{
   transform: scale(1.5)
+}
+.bookmark-window-icon{
+font-size: x-large;
+margin-right: 10px;
+transition: transform 500ms ease
 }
 .card-quantity{
   width: 100%;
