@@ -15,6 +15,5 @@ const Bookmarks = () => {
         </div>
     );
 }
-//Не закончено
  
 export default Bookmarks;

@@ -14,11 +14,10 @@ const {inCartIncrement, inCartDecrement, delFromCart} = useCart()
   }
   
   return (
-    <span className="card-quantity" style={{ fontSize: `${fontSize}` }}>
+    <div className="card-quantity" style={{ fontSize: `${fontSize}` }}>
       <button className={`${btnStyle}`} onClick={() => minusBtn(id)}><AiOutlineMinus /></button><b>{quantityInCart}</b>
       <button className={`${btnStyle}`} onClick={() => inCartIncrement(id)}><AiOutlinePlus  /></button>
-      {/* <button onClick={() => delFromCart(id)}>X</button> */}
-    </span>
+    </div>
   );
 };
 

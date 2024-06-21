@@ -46,7 +46,7 @@ header{
   transition: opacity 500ms ease;
 }
 .navigation li:hover{
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .header-icons{
   font-size: large;
@@ -57,14 +57,83 @@ header{
 .header-icons:hover,.header-icons.active {
  transform:scale(2);
 }
+.header-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  opacity: 0;
+}
 .cart-window{
   position: absolute;
-  right: 0;
-  background-color: #fff;
-  width: 200px;
-  height: 300px;
-  z-index: 100;
-  box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
+    right: 3em;
+    background-color: #fff;
+    width: 600px;
+    height: auto;
+    z-index: 100;
+    border-radius: 5px;
+    box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
+}
+.cart-window li img {
+  width: 100px;
+}
+.cart-window-card {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  align-items: center;
+  gap: 10px;
+}
+.cart-window-card li{
+  align-self:center;
+}
+
+.cart-window-quantity {
+  width: 100px;
+  
+  text-align: center;
+}
+
+.cart-window-quantity-btn {
+  background-color: rgb(255, 214, 164);
+  border: 0;
+  border-radius: 5px;
+  height: 35px;
+  font-weight: 800;
+  font-size: 30px;
+  opacity: 0.8;
+  transition: opacity 500ms ease;
+  cursor: pointer;
+}
+
+.cart-window-quantity-btn:hover {
+  opacity: 1;
+}
+.cart-window-quantity-price{
+  font-size: small;
+  font-weight: 400;
+}
+.cart-sum{
+  text-align: right;
+  margin-right: 10px;
+  font-size: large;
+  font-weight: 600;
+}
+.cart-submit{
+  width: 90%;
+  height: 30px;
+  margin: 10px 5%;
+  border: 0;
+  border-radius: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 500ms ease;
+  background-color: rgb(255, 214, 164);
+}
+.cart-submit:hover {
+  opacity: 1;
 }
 
 .bookmarks-window {
@@ -163,6 +232,11 @@ font-size: small;
   margin: 10px 0 0 0;
   border-radius: 5px;
   border:0px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.add-to-cart-button:hover {
+  opacity: 1;
 }
 
 
@@ -172,6 +246,7 @@ font-size: small;
   z-index: 10;
   top: 2%;
   right: 2%;
+  cursor: pointer;
   transition: transform 500ms ease
 }
 .bookmark-card-icon:hover, .bookmark-window-icon:hover{
@@ -180,26 +255,27 @@ font-size: small;
 .bookmark-window-icon{
 font-size: x-large;
 margin-right: 10px;
+cursor: pointer;
 transition: transform 500ms ease
 }
 .card-quantity{
-  width: 100%;
-  font-size: 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .card-quantity-btn {
-  background-color: bisque;
+  background-color: rgb(255, 214, 164);
   border: 0;
   border-radius: 5px;
   height: 35px;
   font-weight: 800;
   font-size: 30px;
+  opacity: 0.8;
+  cursor: pointer;
   transition: opacity 500ms ease;
 }
-.quantity-btn:hover{
-  opacity: 1.5;
-  
+.card-quantity-btn:hover{
+  opacity: 1;
 }
 
 /* ////////////////////////////////////////// About footer */

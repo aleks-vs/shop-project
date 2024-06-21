@@ -48,9 +48,7 @@ export const useLike = create((set, get)=>({
     },
     delFromLikes: (item) => {
         set({ likes: get().likes.filter(((el) => el.id !== item.id)) })
-    },
-    // isLiked: false,
-    // setIsLiked: set({isLiked: !isLiked})
+    }
         
 }))
 
