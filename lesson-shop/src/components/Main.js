@@ -1,14 +1,24 @@
-import items from "../data/items";
+import { useEffect } from "react";
 import CardItem from "./CardItem";
+import { useFetch } from "./stores";
 
 const Main = () => {
-    return (
+    const { products, getAllProducts, getAllProducts1 } = useFetch();
+    const ItemsLayout = ()=> (
+        < div className='items-list'>
+            {
+                products.map((item) => <CardItem key={item.id} item={item} />)
+            }
+        </div>
+    );
+    useEffect(() => { getAllProducts() }, [getAllProducts]); // можно ли отключить требование добавлять зависимость вместо []?
+    useEffect(() => { <ItemsLayout /> }, [products]);
+
+    return (    
         <main>
-            < div className='items-list'>
-                {
-                 items.map((item) => <CardItem key={item.id} item={item}/>)
-                }
-            </div>
+            <button onClick={() => getAllProducts1()}>by id oooooooooo</button>
+            <button onClick={()=>console.log(products)}>log products oooooooooo</button>
+            <ItemsLayout />
         </main>
     )
 };

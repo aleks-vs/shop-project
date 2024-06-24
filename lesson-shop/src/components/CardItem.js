@@ -13,16 +13,18 @@ const CardItem = ({ item }) => {
     <ul className="item-card">
       <div>
         <li><BookmarksIcon item={item} styleName={"bookmark-card-icon"} />
-        <img src={item.img} alt="item" />
+          <div className="image-container">
+          <img src={item.images[0]} alt="item" /> 
+        </div>
       </li>
       <li>
-        <span className="price-with-disc">{item.price + "$"} </span>
-        <span className="full-price">1000$ </span>
-        <span className="discount-percent">-98%</span>
+        <span className="price-with-disc">{(item.price*(100-item.discountPercentage)/100).toFixed(2)} $</span>
+          <span className="full-price">{item.price + "$" }</span>
+          <span className="discount-percent">-{Math.round(item.discountPercentage)}%</span>
       </li>
-      <li className="stock-quantity">Осталось N шт</li>
-      <li className="item-title">{item.name}</li>
-        <li className="rating-and-reviews"><BsStarFill style={{ color: "darkorange" }} /> 4.7 <BsChatFill /> 11 отзывов</li>
+      <li className="stock-quantity">Осталось {item.stock} шт</li>
+      <li className="item-title">{item.title}</li>
+        <li className="rating-and-reviews"><BsStarFill style={{ color: "darkorange" }} />{item.rating.toFixed(1)}  <BsChatFill /> {item.reviews.length}</li>
         </div>
       <li>
         {!itemInCart ? <button onClick={() => addToCart(item)} className="add-to-cart-button" ><BsCartPlus style={{fontSize:"large"}}/> В корзину  </button>:
