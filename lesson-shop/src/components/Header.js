@@ -4,6 +4,7 @@ import { BsBookmarks  } from "react-icons/bs";
 import {useCart, useLike} from "./stores";
 import Bookmarks from "./Bookmarks";
 import Cart from "./Cart";
+import Search from "./Search";
 
 export default function Header() {
   let [cartOpen, setCartOpen] = useState(false);
@@ -30,18 +31,19 @@ export default function Header() {
           <br />
           Logo
         </div>
+        <Search/>
         <ul className="navigation">
-          <li>Contacts</li>
-          <li>About</li>
+          <li><a href="#top">Contacts</a></li>
+          <li><a href="#top">About</a></li>
           <li>
             <BsBookmarks  
-              onClick={() => setBookmarksOpen(true)}
+              onClick={() => {if (bookmarks.length) setBookmarksOpen(true)}}
               className={`header-icons ${bookmarksOpen && "active"}`}
             />
           </li>
           <li>
             <TfiShoppingCartFull
-              onClick={() => setCartOpen(true)}
+              onClick={() => {if (cart.length) setCartOpen(true)}}
               className={`header-icons ${cartOpen && "active"}`}
             />
           </li>
@@ -51,7 +53,6 @@ export default function Header() {
       {bookmarksOpen && <Bookmarks />
       }
       
-      {console.log("length",bookmarks[0])}
       <div className="devider"></div>
       <div className="banner-height">
         <div className="header-banner"></div>

@@ -11,6 +11,7 @@ body{
   font-family: "Montserrat", sans-serif;
     font-weight:400;
     color: rgb(42, 42, 42);
+    min-width: 600px;
 }
 .devider{
   height: 2px;
@@ -25,6 +26,11 @@ main{
 header{
   position: relative;
 }
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
 .logo{
   display: inline-block;
   width: fit-content;
@@ -33,9 +39,36 @@ header{
   font-weight: 900;
   font-size: 22px;
   }
+.search{
+    width: 40%;  
+    align-self: flex-end;
+}
+  .search-input{
+    width: 90%;
+    height: 30px;
+    border: 0;
+    border: 2px solid black;
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
+  }
+  .search-btn{
+    font-size: large; 
+    width: 10%;
+    height: 30px;
+    background-color: rgb(255, 214, 164);
+    opacity: 0.8;
+    border: 2px solid black;
+    border-left: 0;
+    border-radius: 0 5px 5px 0;
+    vertical-align: bottom;
+    transition: opacity 500ms ease;
+  }
+  .search-btn:hover{
+    opacity: 1;
+  }
 .navigation{
   margin-right: 5vw;
-    margin-top: 25px;
+  margin-top: 25px;
   list-style: none;
   float: right;
 }
@@ -48,8 +81,12 @@ header{
 .navigation li:hover{
   opacity: 0.8;
 }
+.navigation li a{
+  color: black;
+  text-decoration: none;
+}
 .header-icons{
-  font-size: large;
+  height: 20px;
   padding: 2px;
   margin-left: 5px;
   transition: transform 500ms ease;
@@ -163,8 +200,9 @@ header .header-banner{
   background: url('./img/headbg.jpg') no-repeat;
 background-size: cover;
 background-position: center center;
-  width: 90vw;
+  width: 90%;
   height: 20vw;
+  min-height: 120px;
   margin: 25px auto;
 }
 
@@ -172,7 +210,8 @@ background-position: center center;
 .items-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 5px;
 
 }
 
@@ -184,14 +223,15 @@ background-position: center center;
   background-color: #fff;
   border-radius: 10px;
   list-style: none;
-  width: 230px;
-  height: 430px;
+  max-width: 15%;
+  min-width: 120px;
+  max-height: 430px;
   /* border: black solid 1px; */
 }
 
 .image-container{
   max-width: 230px;
-  height: 250px;
+  max-height: 250px;
   min-height: 20px;
 }
 .item-card li img{

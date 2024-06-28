@@ -16,8 +16,8 @@ const Main = () => {
 
     return (    
         <main>
-            <button onClick={() => getAllProducts1()}>by id oooooooooo</button>
-            <button onClick={()=>console.log(products)}>log products oooooooooo</button>
+            <button onClick={() => getAllProducts1()}>by id </button>
+            <button onClick={()=>console.log(products)}>log products</button>
             <ItemsLayout />
         </main>
     )

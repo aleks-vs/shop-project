@@ -58,5 +58,8 @@ export const useFetch = create((set, get) => ({
 .then(res => res.json()).then(item => set({ products: item.products })),
     getAllProducts1: ()=>fetch('https://dummyjson.com/products/category/smartphones')
 .then(res => res.json()).then(item => set({ products: item.products })),
+    getSearch: (inputValue)=> fetch(`https://dummyjson.com/products/search?q=${inputValue}`)
+    .then(res => res.json()).then(item => set({ products: item.products })),
     })
 )
+
