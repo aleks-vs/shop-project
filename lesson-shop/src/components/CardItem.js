@@ -11,7 +11,7 @@ const CardItem = ({ item }) => {
  
   return (
     <ul className="item-card">
-      <div>
+      <div className="item-card-devider">
         <li><BookmarksIcon item={item} styleName={"bookmark-card-icon"} />
           <div className="image-container">
           <img src={item.images[0]} alt="item" /> 

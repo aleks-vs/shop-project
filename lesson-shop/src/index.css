@@ -44,7 +44,7 @@ nav{
     align-self: flex-end;
 }
   .search-input{
-    width: 90%;
+    width: calc(100% - 30px);
     height: 30px;
     border: 0;
     border: 2px solid black;
@@ -53,7 +53,7 @@ nav{
   }
   .search-btn{
     font-size: large; 
-    width: 10%;
+    width: 30px;
     height: 30px;
     background-color: rgb(255, 214, 164);
     opacity: 0.8;
@@ -175,9 +175,10 @@ nav{
 
 .bookmarks-window {
   position: absolute;
-  right: 3em;
+  right: 7vw;
   background-color: #fff;
-  width: 300px;
+  width: 30vw;
+  min-width: 300px;
   height: auto;
   z-index: 100;
   border-radius: 5px;
@@ -187,11 +188,17 @@ nav{
   width: 100px;
 }
 .bookmarks-card{
-  display: flex;
-  justify-content: space-between;
   list-style:none;
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: 3fr 6fr 1fr 1fr;
+  justify-items: start;
   align-items: center;
-  gap: 10px;
+  margin: 0 10px;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; */
 }
 
 
@@ -208,14 +215,18 @@ background-position: center center;
 
 /* ////////////////////////////////////////// About card items */
 .items-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 5px;
-
+    grid-gap: 1px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-items: center;
 }
 
+.item-card-devider{
+  border-top: 1px solid rgba(204, 214, 228, .6);
+  width: fit-content;
+}
 .item-card{
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -223,10 +234,10 @@ background-position: center center;
   background-color: #fff;
   border-radius: 10px;
   list-style: none;
-  max-width: 15%;
-  min-width: 120px;
-  max-height: 430px;
-  /* border: black solid 1px; */
+  grid-column-start: span 2;
+  height: 100%;
+  width: 100%;
+  padding: 2px;
 }
 
 .image-container{
