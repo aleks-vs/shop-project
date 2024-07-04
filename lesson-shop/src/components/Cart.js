@@ -20,7 +20,7 @@ const Cart = () => {
                     <li>{item.cartItem.title}</li>
                     <li className="cart-window-quantity">{<InCartQuantity id={item.id} btnStyle={'cart-window-quantity-btn'} fontSize={'20px'} />}
                         <p className="cart-window-quantity-price">{item.cartItem.price.toFixed(2)}$ / count </p></li>
-                    <li><b>{(item.cartItem.price * item.quantity).toFixed(2)}$</b></li>
+                    <li className="cart-window-item-sum"><b>{(item.cartItem.price * item.quantity).toFixed(2)}$</b></li>
                     <li><AiOutlineDelete className="bookmark-window-icon" onClick={()=>deleteBtn(item.id)}/></li>
                     <li><BookmarksIcon item={item.cartItem} styleName={'bookmark-window-icon'}/></li>
                 </ul>

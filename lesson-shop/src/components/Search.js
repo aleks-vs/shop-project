@@ -17,7 +17,7 @@ const Search = () => {
         <input 
         ref={inputRef} 
         type="search" 
-        placeholder=" Search here..." 
+        placeholder="Search here..." 
         minLength={4} enterKeyHint="" 
         onKeyDown={(event)=> event.key ==="Enter" && getSearch(inputValue)} 
         className="search-input" 
