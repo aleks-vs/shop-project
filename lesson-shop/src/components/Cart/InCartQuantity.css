@@ -1,0 +1,26 @@
+.cart-window-quantity {
+    width: 100px;
+
+    text-align: center;
+}
+
+.cart-window-quantity-btn {
+    background-color: rgb(255, 214, 164);
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    font-weight: 800;
+    font-size: 30px;
+    opacity: 0.8;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+}
+
+.cart-window-quantity-btn:hover {
+    opacity: 1;
+}
+
+.cart-window-quantity-price {
+    font-size: small;
+    font-weight: 400;
+}
