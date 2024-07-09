@@ -54,9 +54,9 @@ export const useLike = create((set, get)=>({
 
 export const useFetch = create((set, get) => ({
     products: [],
-    getAllProducts: ()=>fetch('https://dummyjson.com/products')
+    getAllProducts: ()=>fetch('https://dummyjson.com/products?limit=0')
 .then(res => res.json()).then(item => set({ products: item.products })),
-    getSearch: (inputValue)=> fetch(`https://dummyjson.com/products/search?q=${inputValue}`)
+    getSearch: (inputValue)=> fetch(`https://dummyjson.com/products/search?q=${inputValue}&limit=0`)
     .then(res => res.json()).then(item => set({ products: item.products })),
     })
 )
