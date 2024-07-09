@@ -12,8 +12,9 @@ const Main = () => {
     const firstIndex = lastIndex - itemsOnPage;
     const currentItemsList = products.slice(firstIndex, lastIndex)
 
+    useEffect(() => console.log(itemsOnPage), [itemsOnPage]); 
     
-    useEffect(() => getAllProducts(), [getAllProducts]); // можно ли отключить требование добавлять зависимость вместо []?
+    useEffect(() => {getAllProducts()}, [getAllProducts]); 
     
     useEffect(() => { <ItemsLayout /> }, [products]);
     
@@ -23,8 +24,17 @@ const Main = () => {
                 allItems={products.length}
                 itemsOnPage={itemsOnPage}
                 setCurrentPage={setCurrentPage}
-                currentPage={currentPage} />
-                
+                currentPage={currentPage}
+                setItemsOnPage={setItemsOnPage} />
+
+            <span>Товаров на странице:&nbsp;
+                <select value={itemsOnPage} onChange={(e)=> setItemsOnPage(e.target.value)}>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={30}>30</option>
+                    <option value={50}>50</option>
+                </select>
+            </span>
             < div className='items-list'>
                 {
                     currentItemsList.map((item) => <CardItem key={item.id} item={item} />)
