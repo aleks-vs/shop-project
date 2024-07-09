@@ -48,9 +48,16 @@ export const useLike = create((set, get)=>({
     },
     delFromLikes: (item) => {
         set({ likes: get().likes.filter(((el) => el.id !== item.id)) })
-    },
-    // isLiked: false,
-    // setIsLiked: set({isLiked: !isLiked})
+    }
         
 }))
+
+export const useFetch = create((set, get) => ({
+    products: [],
+    getAllProducts: ()=>fetch('https://dummyjson.com/products?limit=0')
+.then(res => res.json()).then(item => set({ products: item.products })),
+    getSearch: (inputValue)=> fetch(`https://dummyjson.com/products/search?q=${inputValue}&limit=0`)
+    .then(res => res.json()).then(item => set({ products: item.products })),
+    })
+)
 

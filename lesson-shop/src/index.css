@@ -1,210 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-*{
+@import "./components/Header/Header.css";
+@import "./components/Bookmarks/Bookmarks.css";
+@import "./components/Cart/Cart.css";
+@import "./components/Cart/InCartQuantity.css";
+@import "./components/Search/Search.css";
+@import "./components/Main/Main.css";
+@import "./components/ItemCards/CardItem.css";
+@import "./components/Icons/Icons.css";
+@import "./components/Footer/Footer.css";
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
-  background-color:fff;
+body {
+  background-color: fff;
   font-family: "Montserrat", sans-serif;
-    font-weight:400;
-    color: rgb(42, 42, 42);
-}
-.devider{
-  height: 2px;
-margin-top: 5px;
-  background-color: black;
-}
-main{
-  margin: 50px 5vw;
+  font-weight: 400;
+  color: rgb(42, 42, 42);
+  min-width: 600px;
+  width: 100vw;
 }
 
-/* ////////////////////////////////////////// About header */
-header{
-  position: relative;
-}
-.logo{
-  display: inline-block;
-  width: fit-content;
-  margin-left: 5vw;
-  margin-top: 10px;
-  font-weight: 900;
-  font-size: 22px;
-  }
-.navigation{
-  margin-right: 5vw;
-    margin-top: 25px;
-  list-style: none;
-  float: right;
-}
-.navigation li{
-  display: inline;
-  margin-left: 15px;
-  cursor: pointer;
-  transition: opacity 500ms ease;
-}
-.navigation li:hover{
-  opacity: 0.5;
-}
-.header-icons{
-  font-size: large;
-  padding: 2px;
-  margin-left: 5px;
-  transition: transform 500ms ease;
-}
-.header-icons:hover,.header-icons.active {
- transform:scale(2);
-}
-.cart-window{
-  position: absolute;
-  right: 0;
-  background-color: #fff;
-  width: 200px;
-  height: 300px;
-  z-index: 100;
-  box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
-}
-
-.bookmarks-window {
-  position: absolute;
-  right: 3em;
-  background-color: #fff;
-  width: 300px;
-  height: auto;
-  z-index: 100;
-  border-radius: 5px;
-  box-shadow: 28px 15px 61px 7px rgba(0, 0, 0, 0.1);
-}
-.bookmarks-window li img{
-  width: 100px;
-}
-.bookmarks-card{
-  display: flex;
-  list-style:none;
-  align-items: center;
-  gap: 10px;
-}
-
-
-header .header-banner{
-  position: relative;
-  background: url('./img/headbg.jpg') no-repeat;
-background-size: cover;
-background-position: center center;
-  width: 90vw;
-  height: 20vw;
-  margin: 25px auto;
-}
-
-/* ////////////////////////////////////////// About card items */
-.items-list {
-  display: flex;
-  gap: 10px;
-
-}
-
-.item-card{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  background-color: #fff;
-  border-radius: 10px;
-  list-style: none;
-  width: 230px;
-  height: 430px;
-  /* border: black solid 1px; */
-}
-
-
-.item-card li img{
-  width: 100%;
-  border-radius: 15px 15px 0 0;
-  margin-bottom: 15px;
-}
-.price-with-disc{
-  font-size: large;
-font-weight: 800;
-color: rgb(3, 165, 3);
-}
-.full-price{
-font-weight: 600;
-font-size: small;
-color: grey;
-text-decoration: line-through;
-margin-left: 5px;
-}
-.discount-percent{
-color:deeppink;
-margin-left: 5px;
-font-weight: 600;
-}
-.stock-quantity{
-font-size: small;
-  color: grey;
-  margin-bottom: 10px;
-}
-.item-title{
-font-weight: 500;
-margin-bottom: 10px;
-}
-.rating-and-reviews{
-font-size: small;
-  color: grey;
-}
-.add-to-cart-button{
-  background-color: bisque;
-  width: 100%;
-  height: 35px;
-  font-size: large;
-  font-weight: 600;
-  margin: 10px 0 0 0;
-  border-radius: 5px;
-  border:0px;
-}
-
-
-.bookmark-card-icon{
-  font-size:x-large;
-  position: absolute;
-  z-index: 10;
-  top: 2%;
-  right: 2%;
-  transition: transform 500ms ease
-}
-.bookmark-card-icon:hover, .bookmark-window-icon:hover{
-  transform: scale(1.5)
-}
-.bookmark-window-icon{
-font-size: x-large;
-margin-right: 10px;
-transition: transform 500ms ease
-}
-.card-quantity{
-  width: 100%;
-  font-size: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-.card-quantity-btn {
-  background-color: bisque;
-  border: 0;
-  border-radius: 5px;
-  height: 35px;
-  font-weight: 800;
-  font-size: 30px;
-  transition: opacity 500ms ease;
-}
-.quantity-btn:hover{
-  opacity: 1.5;
-  
-}
-
-/* ////////////////////////////////////////// About footer */
-footer{
-  text-align: center;
-  margin-top:50px;
-  background-color: rgb(202, 171, 134);
-}
