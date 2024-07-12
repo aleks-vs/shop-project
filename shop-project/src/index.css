@@ -19,6 +19,6 @@ body {
   font-weight: 400;
   color: rgb(42, 42, 42);
   min-width: 600px;
-  width: 100vw;
+  width: 100%;
 }
 
