@@ -1,24 +1,26 @@
 import { BiSearch } from "react-icons/bi";
 import { useFetch } from "../stores";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Search = () => {
     const inputRef = useRef();
     const {getSearch} = useFetch();
     const [inputValue, setInputValue] = useState();
-    // function inputUpdate() {
-    //     setTimeout(()=>{
-    //         setInputValue(inputRef.current.value)
-    //     }, 500)
-    //     console.log(inputValue);
-    // } добавить в функцию выход из таймаута или _.debounce
+    
+    useEffect(() => {
+        let searchUpdate = setTimeout(()=>{
+            setInputValue(inputRef.current.value)
+            console.log(inputValue);
+        }, 500)
+        return ()=> clearTimeout(searchUpdate)
+    },[inputValue])
     return (
     <span className="search">
         <input 
         ref={inputRef} 
         type="search" 
         placeholder="Search here..." 
-        minLength={4} enterKeyHint="" 
+        minLength={4}
         onKeyDown={(event)=> event.key ==="Enter" && getSearch(inputValue)} 
         className="search-input" 
         onChange={()=>setInputValue(inputRef.current.value)}/>
